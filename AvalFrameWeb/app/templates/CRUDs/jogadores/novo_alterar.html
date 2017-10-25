@@ -1,0 +1,55 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+    
+<h1>Jogadores</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    
+    {% if form.non_field_errors %}
+    <div class="panel panel-danger">
+        <div class="panel-body">
+            {% for erro in form.non_field_errors %}
+                {{erro}}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+
+    {% if item %}
+    <div class="form-group">
+        <label for="codigo">Código: </label>
+        <input type="text" id="codigo" name="codigo" class="form-control" value="{{item.codigo}}" disabled/>
+        <span class="help-block">{{form.errors.codigo.0}}</span>
+    </div>
+    {% endif %}
+    <div class="form-group">
+        <label for="nome">Nome: </label>
+        <input id="nome" type="text" name="nome" class="form-control" value="{{item.nome}}"/>
+        <span class="help-block">{{form.errors.nome.0}}</span>
+    </div>
+    <div class="form-group">
+        <label for="sexo">Sexo: </label>
+        <select class="form-control" id="sexo" name="sexo" value="item.sexo">
+            <option selected disabled>Selecione o Sexo</option>
+            <option>M</option>
+            <option>F</option>
+        </select>
+        <span class="help-block">{{form.errors.sexo.0}}</span>
+    </div>
+    <div class="form-group">
+        <label for="data_nascimento">Data de Nascimento: </label>
+        <input id="data_nascimento" type="date" name="data_nascimento" class="form-control" value="{{item.data_nascimento}}"/>
+        <span class="help-block">{{form.errors.data_nascimento.0}}</span>
+    </div>
+    <div class="form-group">
+        <label for="data_desde_quando_joga">Data desde quando joga: </label>
+        <input id="data_desde_quando_joga" type="date" name="data_desde_quando_joga" class="form-control" value="{{item.data_desde_quando_joga}}"/>
+        <span class="help-block">{{form.errors.data_desde_quando_joga.0}}</span>
+    </div>
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+    
+<h1>Jogadores</h1>
+<form method="get">
+    <div class="form-group">
+        <label for="codigo">Código: </label>
+        <input type="text" class="form-control tamanho90" id="codigo" name="codigo" />
+    </div>
+    <button type="submit" class="btn=btn-success">Pesquisar</button>
+</form>
+<p style="text-align: right"><a class="btn btn-primary" href="{% url 'jogadores_novo' %}">Cadastrar Jogador</a></p>
+<table class="table">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Nome
+        </th>
+        <th>
+            Sexo
+        </th>
+        <th>
+            Data de Nascimento
+        </th>
+        <th>
+            Data desde quando joga
+        </th>
+        <th>
+            Ações
+        </th>
+    </tr>
+    {% for item in jogadores %}
+    <tr>
+        <td>
+            {{item.codigo}}
+        </td>
+        <td>
+            {{item.nome}}
+        </td>
+        <td>
+            {{item.sexo}}
+        </td>
+        <td>
+            {{item.data_nascimento}}
+        </td>
+        <td>
+            {{item.data_desde_quando_joga}}
+        </td>
+        <td>
+            <a class="btn btn-warning" href="{% url 'jogadores_alterar' codigo=item.codigo %}">Alterar</a>
+            <a class="btn btn-danger" href="{% url 'jogadores_deletar' codigo=item.codigo %}">Deletar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

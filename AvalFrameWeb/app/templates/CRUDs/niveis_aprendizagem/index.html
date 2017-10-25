@@ -1,0 +1,69 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+    
+<h1>Níveis de Aprendizagem</h1>
+<form method="get">
+    <div class="form-group">
+        <label for="codigo">Código: </label>
+        <input type="text" class="form-control tamanho90" id="codigo" name="codigo" />
+    </div>
+    <button type="submit" class="btn=btn-success">Pesquisar</button>
+</form>
+<p style="text-align: right"><a class="btn btn-primary" href="{% url 'niveis_aprendizagem_novo' %}">Cadastrar Novo Nível de Aprendizagem</a></p>
+<table class="table">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Nível
+        </th>
+        <th>
+            Código da Aprendizagem
+        </th>
+        <th>
+            Título
+        </th>
+        <th>
+            Percentual do Valor Máximo da Aprendizagem que indica o inicio do Nível
+        </th>
+        <th>
+            Percentual do Valor Máximo da Aprendizagem  que Indica o fim do Nível
+        </th>
+        <th>
+            Percentual de Jogadores nesse nível de Aprendizagem
+        </th>
+    </tr>
+    {% for item in niveis_aprendizagem %}
+    <tr>
+        <td>
+            {{item.codigo}}
+        </td>
+        <td>
+            {{item.nivel}}
+        </td>
+        <td>
+            {{item.codigo_aprendizagem.codigo}}
+        </td>
+        <td>
+            {{item.titulo}}
+        </td>
+        <td>
+            {{item.inicio_nivel}} 
+        </td>
+        <td>
+            {{item.fim_nivel}}
+        </td>
+        <td>
+            {{item.jogadores_nesse_nivel}}
+        </td>
+        <td>
+            <a class="btn btn-warning" href="{% url 'niveis_aprendizagem_alterar' codigo=item.codigo %}">Alterar</a>
+            <a class="btn btn-danger" href="{% url 'niveis_aprendizagem_deletar' codigo=item.codigo %}">Deletar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+Aprendizagens OK
+Competencias ok
+jogo ok
+niveis ok
+aeej ok
+dados ok
+dispositivo ok
+unidades ok
+
+
+
+Niveis de Aprendizagem formatacao %
+niveis competencia avaliacao - colocar not null em codigo_competencia, formatacao %
+Jogador - sexo e datas em alterar
+competencia x aprendizagem - formatação %
+
+
+fase ajustar nvel
+etapa ajustar fks
+aprendizagem x aeej
+aprendizagem x dados

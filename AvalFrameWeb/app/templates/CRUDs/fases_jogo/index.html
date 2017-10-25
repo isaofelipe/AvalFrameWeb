@@ -1,0 +1,57 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+    
+<h1>Fase de Jogos Digitais</h1>
+<form method="get">
+    <div class="form-group">
+        <label for="codigo">Código: </label>
+        <input type="text" class="form-control tamanho90" id="codigo" name="codigo" />
+    </div>
+    <button type="submit" class="btn=btn-success">Pesquisar</button>
+</form>
+<p style="text-align: right"><a class="btn btn-primary" href="{% url 'fases_jogo_novo' %}">Cadastrar Nova Fase</a></p>
+<table class="table">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Fase
+        </th>
+        <th>
+            Título
+        </th>
+        <th>
+            Código do Jogo
+        </th>
+        <th>
+            Nível
+        </th>
+    </tr>
+    {% for item in fases_jogo %}
+    <tr>
+        <td>
+            {{item.codigo}}
+        </td>
+        <td>
+            {{item.fase}}
+        </td>
+        <td>
+            {{item.titulo}}
+        </td>
+        <td>
+            {{item.codigo_jogo.codigo}}
+        </td>
+        <td>
+            {{item.codigo_nivel.nivel}}
+        </td>
+        <td>
+            <a class="btn btn-warning" href="{% url 'fases_jogo_alterar' codigo=item.codigo %}">Alterar</a>
+            <a class="btn btn-danger" href="{% url 'fases_jogo_deletar' codigo=item.codigo %}">Deletar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

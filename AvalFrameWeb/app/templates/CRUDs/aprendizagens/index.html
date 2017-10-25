@@ -1,0 +1,49 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+    
+<h1>Aprendizagens</h1>
+<form method="get">
+    <div class="form-group">
+        <label for="codigo">Código: </label>
+        <input type="text" class="form-control tamanho90" id="codigo" name="codigo"/>
+    </div>
+    <button type="submit" class="btn=btn-success">Pesquisar</button>
+</form>
+<p style="text-align: right"><a class="btn btn-primary" href="{% url 'aprendizagens_novo' %}">Cadastrar Nova Aprendizagem</a></p>
+<table class="table">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Tipo
+        </th>
+        <th>
+            Título
+        </th>
+        <th>
+            Ações
+        </th>
+    </tr>
+    {% for aprendizagem in aprendizagens %}
+    <tr>
+        <td>
+            {{aprendizagem.codigo}}
+        </td>
+        <td>
+            {{aprendizagem.tipo}}
+        </td>
+        <td>
+            {{aprendizagem.titulo}}
+        </td>
+        <td>
+        
+            <a class="btn btn-warning" href="{% url 'aprendizagens_alterar' codigo=aprendizagem.codigo %}">Alterar</a>
+            <a class="btn btn-danger" href="{% url 'aprendizagens_deletar' codigo=aprendizagem.codigo %}">Deletar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

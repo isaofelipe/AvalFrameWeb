@@ -1,0 +1,48 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+    
+<h1>Competencias</h1>
+<form method="get">
+    <div class="form-group">
+        <label for="codigo">Código: </label>
+        <input type="text" class="form-control tamanho90" id="codigo" name="codigo" />
+    </div>
+    <button type="submit" class="btn=btn-success">Pesquisar</button>
+</form>
+<p style="text-align: right"><a class="btn btn-primary" href="{% url 'competencias_novo' %}">Cadastrar Nova Competência</a></p>
+<table class="table">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Título
+        </th>
+        <th>
+            Valor máximo de pontos
+        </th>
+        <th>
+            Ações
+        </th>
+    </tr>
+    {% for competencia in competencias %}
+    <tr>
+        <td>
+            {{competencia.codigo}}
+        </td>
+        <td>
+            {{competencia.titulo}}
+        </td>
+        <td>
+            {{competencia.valor_maximo_pontos}}
+        </td>
+        <td>
+            <a class="btn btn-warning" href="{% url 'competencias_alterar' codigo=competencia.codigo %}">Alterar</a>
+            <a class="btn btn-danger" href="{% url 'competencias_deletar' codigo=competencia.codigo %}">Deletar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

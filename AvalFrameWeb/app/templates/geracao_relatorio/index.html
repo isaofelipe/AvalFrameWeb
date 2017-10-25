@@ -1,0 +1,52 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h1>Geração de Relatório</h1>
+<form method="get">
+    <div class="form-group">
+        <label for="codigo">Matrícula: </label>
+        <input type="text" class="form-control" id="codigo" name="codigo" />
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm">Gerar Relatório</button>
+</form>
+<p></p>
+<table class="table">
+    <tr>
+        <th>
+            Nome Jogo
+        </th>
+        <th>
+            Aluno
+        </th>
+        <th>
+            Tipo Aprendizagem
+        </th>
+        <th>
+            Titulo Aprendizagem
+        </th>
+        <th>
+           Valor Aprendizagem
+        </th>
+    </tr>
+    {% for item in aeejAprendizagensDados %}
+    <tr>
+        <td>
+            {{item.codigo}}
+        </td>
+        <td>
+            {{item.codigo_jogador}}
+        </td>
+        <td>
+            {{item.codigo_aprendizagem}}
+        </td>
+        <td>
+             {{item.codigo_aprendizagem}}
+        </td>
+        <td>
+             {{item.valor_aprendizagem}}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

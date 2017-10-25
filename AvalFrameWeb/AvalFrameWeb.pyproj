@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>AvalFrameWeb</Name>
+    <RootNamespace>AvalFrameWeb</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1f91f518-0f60-4005-9c22-3a48c468c3e0}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\forms.py" />
+    <Compile Include="app\forms_carga.py" />
+    <Compile Include="app\models.py" />
+    <Compile Include="app\models_antigo.py" />
+    <Compile Include="app\models_carga.py" />
+    <Compile Include="app\tests.py" />
+    <Compile Include="app\urls\aeej\urls.py" />
+    <Compile Include="app\urls\aeej\__init__.py" />
+    <Compile Include="app\urls\aprendizagens\urls.py" />
+    <Compile Include="app\urls\aprendizagens\__init__.py" />
+    <Compile Include="app\urls\aprendizagens_aeej\urls.py" />
+    <Compile Include="app\urls\aprendizagens_aeej\__init__.py" />
+    <Compile Include="app\urls\carga_aprendizagens\urls.py" />
+    <Compile Include="app\urls\carga_aprendizagens\__init__.py" />
+    <Compile Include="app\urls\competencias\urls.py" />
+    <Compile Include="app\urls\competencias\__init__.py" />
+    <Compile Include="app\urls\competencias_aprendizagens\urls.py" />
+    <Compile Include="app\urls\competencias_aprendizagens\__init__.py" />
+    <Compile Include="app\urls\dispositivos_captura\urls.py" />
+    <Compile Include="app\urls\dispositivos_captura\__init__.py" />
+    <Compile Include="app\urls\etapas_jogo\urls.py" />
+    <Compile Include="app\urls\etapas_jogo\__init__.py" />
+    <Compile Include="app\urls\fases_jogo\urls.py" />
+    <Compile Include="app\urls\fases_jogo\__init__.py" />
+    <Compile Include="app\urls\geracao_relatorio\urls.py" />
+    <Compile Include="app\urls\geracao_relatorio\__init__.py" />
+    <Compile Include="app\urls\jogadores\urls.py" />
+    <Compile Include="app\urls\jogadores\__init__.py" />
+    <Compile Include="app\urls\jogos_digitais\urls.py" />
+    <Compile Include="app\urls\jogos_digitais\__init__.py" />
+    <Compile Include="app\urls\niveis_aprendizagem\urls.py" />
+    <Compile Include="app\urls\niveis_aprendizagem\__init__.py" />
+    <Compile Include="app\urls\niveis_competencia_avaliacao\urls.py" />
+    <Compile Include="app\urls\niveis_competencia_avaliacao\__init__.py" />
+    <Compile Include="app\urls\niveis_jogo\urls.py" />
+    <Compile Include="app\urls\niveis_jogo\__init__.py" />
+    <Compile Include="app\urls\__init__.py" />
+    <Compile Include="app\viewsold.py" />
+    <Compile Include="app\views\aeej.py" />
+    <Compile Include="app\views\aprendizagens.py" />
+    <Compile Include="app\views\aprendizagens_aeej.py" />
+    <Compile Include="app\views\carga_aprendizagens.py" />
+    <Compile Include="app\views\competencias.py" />
+    <Compile Include="app\views\competencias_aprendizagens.py" />
+    <Compile Include="app\views\dispositivos_captura.py" />
+    <Compile Include="app\views\etapas_jogo.py" />
+    <Compile Include="app\views\fases_jogo.py" />
+    <Compile Include="app\views\geracao_relatorio.py" />
+    <Compile Include="app\views\home.py" />
+    <Compile Include="app\views\jogadores.py" />
+    <Compile Include="app\views\jogos_digitais.py" />
+    <Compile Include="app\views\niveis_aprendizagem.py" />
+    <Compile Include="app\views\niveis_competencia_avaliacao.py" />
+    <Compile Include="app\views\niveis_jogo.py" />
+    <Compile Include="app\views\__init__.py" />
+    <Compile Include="app\__init__.py" />
+    <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="AvalFrameWeb\__init__.py" />
+    <Compile Include="AvalFrameWeb\settings.py" />
+    <Compile Include="AvalFrameWeb\urls.py" />
+    <Compile Include="AvalFrameWeb\wsgi.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\migrations\" />
+    <Folder Include="app\templates\app\" />
+    <Folder Include="app\templates\carga_aprendizagens\" />
+    <Folder Include="app\templates\CRUDs\" />
+    <Folder Include="app\templates\CRUDs\aeej\" />
+    <Folder Include="app\templates\CRUDs\aprendizagens\" />
+    <Folder Include="app\templates\CRUDs\aprendizagens_aeej\" />
+    <Folder Include="app\templates\CRUDs\competencias\" />
+    <Folder Include="app\templates\CRUDs\competencias_aprendizagens\" />
+    <Folder Include="app\templates\CRUDs\dispositivos_captura\" />
+    <Folder Include="app\templates\CRUDs\etapas_jogo\" />
+    <Folder Include="app\templates\CRUDs\fases_jogo\" />
+    <Folder Include="app\templates\CRUDs\jogadores\" />
+    <Folder Include="app\templates\CRUDs\jogos_digitais\" />
+    <Folder Include="app\templates\CRUDs\niveis_aprendizagem\" />
+    <Folder Include="app\templates\CRUDs\niveis_competencia_avaliacao\" />
+    <Folder Include="app\templates\CRUDs\niveis_jogo\" />
+    <Folder Include="app\templates\geracao_relatorio\" />
+    <Folder Include="app\urls\" />
+    <Folder Include="app\urls\aeej\" />
+    <Folder Include="app\urls\aeej\__pycache__\" />
+    <Folder Include="app\urls\aprendizagens\" />
+    <Folder Include="app\urls\aprendizagens\__pycache__\" />
+    <Folder Include="app\urls\aprendizagens_aeej\" />
+    <Folder Include="app\urls\aprendizagens_aeej\__pycache__\" />
+    <Folder Include="app\urls\carga_aprendizagens\" />
+    <Folder Include="app\urls\competencias\" />
+    <Folder Include="app\urls\competencias\__pycache__\" />
+    <Folder Include="app\urls\competencias_aprendizagens\" />
+    <Folder Include="app\urls\dispositivos_captura\" />
+    <Folder Include="app\urls\dispositivos_captura\__pycache__\" />
+    <Folder Include="app\urls\etapas_jogo\" />
+    <Folder Include="app\urls\etapas_jogo\__pycache__\" />
+    <Folder Include="app\urls\fases_jogo\" />
+    <Folder Include="app\urls\fases_jogo\__pycache__\" />
+    <Folder Include="app\urls\geracao_relatorio\" />
+    <Folder Include="app\urls\geracao_relatorio\__pycache__\" />
+    <Folder Include="app\urls\jogadores\" />
+    <Folder Include="app\urls\jogadores\__pycache__\" />
+    <Folder Include="app\urls\jogos_digitais\" />
+    <Folder Include="app\urls\jogos_digitais\__pycache__\" />
+    <Folder Include="app\urls\niveis_aprendizagem\" />
+    <Folder Include="app\urls\niveis_aprendizagem\__pycache__\" />
+    <Folder Include="app\urls\niveis_competencia_avaliacao\" />
+    <Folder Include="app\urls\niveis_competencia_avaliacao\__pycache__\" />
+    <Folder Include="app\urls\niveis_jogo\" />
+    <Folder Include="app\urls\niveis_jogo\__pycache__\" />
+    <Folder Include="app\urls\__pycache__\" />
+    <Folder Include="app\static\" />
+    <Folder Include="app\static\app\" />
+    <Folder Include="app\static\app\content\" />
+    <Folder Include="app\static\app\fonts\" />
+    <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\templates\" />
+    <Folder Include="app\views\" />
+    <Folder Include="app\views\__pycache__\" />
+    <Folder Include="AvalFrameWeb\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\templates\app\about.html" />
+    <Content Include="app\templates\app\contact.html" />
+    <Content Include="app\templates\app\index.html" />
+    <Content Include="app\templates\app\layout.html" />
+    <Content Include="app\templates\app\login.html" />
+    <Content Include="app\templates\app\loginpartial.html" />
+    <Content Include="app\templates\carga_aprendizagens\index.html" />
+    <Content Include="app\templates\CRUDs\aeej\deletar.html" />
+    <Content Include="app\templates\CRUDs\aeej\index.html" />
+    <Content Include="app\templates\CRUDs\aeej\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\aprendizagens\deletar.html" />
+    <Content Include="app\templates\CRUDs\aprendizagens\index.html" />
+    <Content Include="app\templates\CRUDs\aprendizagens\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\aprendizagens_aeej\deletar.html" />
+    <Content Include="app\templates\CRUDs\aprendizagens_aeej\index.html" />
+    <Content Include="app\templates\CRUDs\aprendizagens_aeej\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\competencias\deletar.html" />
+    <Content Include="app\templates\CRUDs\competencias\index.html" />
+    <Content Include="app\templates\CRUDs\competencias\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\competencias_aprendizagens\deletar.html" />
+    <Content Include="app\templates\CRUDs\competencias_aprendizagens\index.html" />
+    <Content Include="app\templates\CRUDs\competencias_aprendizagens\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\dispositivos_captura\deletar.html" />
+    <Content Include="app\templates\CRUDs\dispositivos_captura\index.html" />
+    <Content Include="app\templates\CRUDs\dispositivos_captura\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\etapas_jogo\deletar.html" />
+    <Content Include="app\templates\CRUDs\etapas_jogo\index.html" />
+    <Content Include="app\templates\CRUDs\etapas_jogo\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\fases_jogo\deletar.html" />
+    <Content Include="app\templates\CRUDs\fases_jogo\index.html" />
+    <Content Include="app\templates\CRUDs\fases_jogo\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\jogadores\deletar.html" />
+    <Content Include="app\templates\CRUDs\jogadores\index.html" />
+    <Content Include="app\templates\CRUDs\jogadores\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\jogos_digitais\deletar.html" />
+    <Content Include="app\templates\CRUDs\jogos_digitais\index.html" />
+    <Content Include="app\templates\CRUDs\jogos_digitais\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\niveis_aprendizagem\deletar.html" />
+    <Content Include="app\templates\CRUDs\niveis_aprendizagem\index.html" />
+    <Content Include="app\templates\CRUDs\niveis_aprendizagem\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\niveis_competencia_avaliacao\deletar.html" />
+    <Content Include="app\templates\CRUDs\niveis_competencia_avaliacao\index.html" />
+    <Content Include="app\templates\CRUDs\niveis_competencia_avaliacao\novo_alterar.html" />
+    <Content Include="app\templates\CRUDs\niveis_jogo\deletar.html" />
+    <Content Include="app\templates\CRUDs\niveis_jogo\index.html" />
+    <Content Include="app\templates\CRUDs\niveis_jogo\novo_alterar.html" />
+    <Content Include="app\templates\geracao_relatorio\index.html" />
+    <Content Include="app\urls\aeej\urls.pyc" />
+    <Content Include="app\urls\aeej\__init__.pyc" />
+    <Content Include="app\urls\aeej\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\aprendizagens\urls.pyc" />
+    <Content Include="app\urls\aprendizagens\__init__.pyc" />
+    <Content Include="app\urls\aprendizagens\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\aprendizagens_aeej\urls.pyc" />
+    <Content Include="app\urls\aprendizagens_aeej\__init__.pyc" />
+    <Content Include="app\urls\aprendizagens_aeej\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\carga_aprendizagens\urls.pyc" />
+    <Content Include="app\urls\carga_aprendizagens\__init__.pyc" />
+    <Content Include="app\urls\competencias\urls.pyc" />
+    <Content Include="app\urls\competencias\__init__.pyc" />
+    <Content Include="app\urls\competencias\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\competencias_aprendizagens\urls.pyc" />
+    <Content Include="app\urls\competencias_aprendizagens\__init__.pyc" />
+    <Content Include="app\urls\dispositivos_captura\urls.pyc" />
+    <Content Include="app\urls\dispositivos_captura\__init__.pyc" />
+    <Content Include="app\urls\dispositivos_captura\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\etapas_jogo\urls.pyc" />
+    <Content Include="app\urls\etapas_jogo\__init__.pyc" />
+    <Content Include="app\urls\etapas_jogo\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\fases_jogo\urls.pyc" />
+    <Content Include="app\urls\fases_jogo\__init__.pyc" />
+    <Content Include="app\urls\fases_jogo\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\geracao_relatorio\urls.pyc" />
+    <Content Include="app\urls\geracao_relatorio\__init__.pyc" />
+    <Content Include="app\urls\geracao_relatorio\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\jogadores\urls.pyc" />
+    <Content Include="app\urls\jogadores\__init__.pyc" />
+    <Content Include="app\urls\jogadores\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\jogos_digitais\urls.pyc" />
+    <Content Include="app\urls\jogos_digitais\__init__.pyc" />
+    <Content Include="app\urls\jogos_digitais\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\niveis_aprendizagem\urls.pyc" />
+    <Content Include="app\urls\niveis_aprendizagem\__init__.pyc" />
+    <Content Include="app\urls\niveis_aprendizagem\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\niveis_competencia_avaliacao\urls.pyc" />
+    <Content Include="app\urls\niveis_competencia_avaliacao\__init__.pyc" />
+    <Content Include="app\urls\niveis_competencia_avaliacao\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\niveis_jogo\urls.pyc" />
+    <Content Include="app\urls\niveis_jogo\__init__.pyc" />
+    <Content Include="app\urls\niveis_jogo\__pycache__\urls.cpython-36.pyc" />
+    <Content Include="app\urls\__init__.pyc" />
+    <Content Include="app\urls\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="app\views\__pycache__\aprendizagens.cpython-36.pyc" />
+    <Content Include="app\views\__pycache__\competencias.cpython-36.pyc" />
+    <Content Include="app\views\__pycache__\home.cpython-36.pyc" />
+    <Content Include="app\views\__pycache__\niveis_de_apredizagem.cpython-36.pyc" />
+    <Content Include="app\views\__pycache__\niveis_de_competencia_avaliacao.cpython-36.pyc" />
+    <Content Include="app\views\__pycache__\__init__.cpython-36.pyc" />
+    <Content Include="requirements.txt" />
+    <Content Include="db.sqlite3" />
+    <Content Include="app\static\app\content\bootstrap.css" />
+    <Content Include="app\static\app\content\bootstrap.min.css" />
+    <Content Include="app\static\app\content\site.css" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\app\scripts\bootstrap.js" />
+    <Content Include="app\static\app\scripts\bootstrap.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
+    <Content Include="app\static\app\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.min.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
+    <Content Include="app\static\app\scripts\respond.js" />
+    <Content Include="app\static\app\scripts\respond.min.js" />
+    <Content Include="app\static\app\scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.html">
+      <SubType>WebBrowser</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,54 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+    
+<h1>Níveis do Jogo Digital</h1>
+<form method="get">
+    <div class="form-group">
+        <label for="codigo">Código do Jogo: </label>
+        <input type="text" class="form-control tamanho90" id="codigo_jogo" name="codigo_jogo" />
+    </div>
+    <button type="submit" class="btn=btn-success">Pesquisar</button>
+</form>
+<p style="text-align: right"><a class="btn btn-primary" href="{% url 'niveis_jogo_novo' %}">Cadastrar Novo Nível</a></p>
+<table class="table">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Número do Nível
+        </th>
+        <th>
+            Código do Jogo
+        </th>
+        <th>
+            Título
+        </th>
+        <th>
+            Ações
+        </th>
+    </tr>
+    {% for item in niveis_jogo %}
+    <tr>
+        <td>
+            {{item.codigo}}
+        </td>
+        <td>
+            {{item.nivel}}
+        </td>
+        <td>
+            {{item.codigo_jogo}}
+        </td>
+        <td>
+            {{item.titulo}}
+        </td>
+        <td>
+            <a class="btn btn-warning" href="{% url 'niveis_jogo_alterar' codigo=item.codigo %}">Alterar</a>
+            <a class="btn btn-danger" href="{% url 'niveis_jogo_deletar' codigo=item.codigo %}">Deletar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
