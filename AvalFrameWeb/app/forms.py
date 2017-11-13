@@ -3,7 +3,7 @@ Definition of forms.
 """
 
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput
 from app.models import *
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
@@ -76,6 +76,10 @@ class EtapasJogo_Form(Form_Bootstrap):
     class Meta:
         model = EtapasJogo
         fields = ['etapa', 'codigo_jogo', 'codigo_nivel', 'codigo_fase', 'titulo']
+        widgets = {
+            'codigo_nivel': TextInput(),
+            'codigo_fase' : TextInput(),
+            }
 
     def clean_codigo_nivel(self):
         try:
@@ -101,6 +105,9 @@ class FasesJogo_Form(Form_Bootstrap):
     class Meta:
         model = FasesJogo
         fields = ['fase','codigo_jogo','codigo_nivel','titulo']
+        widgets = {
+            'codigo_nivel': TextInput(),
+            }
         
     def clean_codigo_nivel(self):
         try:
@@ -123,3 +130,12 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                widget=forms.PasswordInput({
                                    'class': 'form-control',
                                    'placeholder':'Password'}))
+
+class UploadFileForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(UploadFileForm, self).__init__(*args, **kwargs)
+        for field in iter(self.fields):
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control'
+                })
+    file = forms.FileField()

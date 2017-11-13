@@ -3,15 +3,9 @@
 {% block content %}
     
 <h1>Competências x Aprendizagens</h1>
-<form method="get">
-    <div class="form-group">
-        <label for="codigo">Código: </label>
-        <input type="text" class="form-control tamanho90" id="codigo" name="codigo" />
-    </div>
-    <button type="submit" class="btn=btn-success">Pesquisar</button>
-</form>
-<p style="text-align: right"><a class="btn btn-primary" href="{% url 'competencias_aprendizagens_novo' %}">Cadastrar Novo Relacionamento Competência Aprendizagem</a></p>
-<table class="table">
+<p style="text-align: left"><a class="btn btn-primary" href="{% url 'competencias_aprendizagens_novo' %}">Cadastrar Novo Relacionamento Competência Aprendizagem</a></p>
+<table class="table table-bordered" id="datatable" cellspacing="0" width="100%">
+    <thead>
     <tr>
         <th>
             Código
@@ -26,6 +20,8 @@
             Percentual de Contribuição da Aprendizagem na Competência
         </th>
     </tr>
+    </thead>
+    <tbody>
     {% for item in competencias_aprendizagens %}
     <tr>
         <td>
@@ -46,6 +42,7 @@
         </td>
     </tr>
     {% endfor %}
+    </tbody>
 </table>
 
 {% endblock %}

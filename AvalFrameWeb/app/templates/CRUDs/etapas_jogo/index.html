@@ -3,15 +3,9 @@
 {% block content %}
     
 <h1>Etapa de Jogos Digitais</h1>
-<form method="get">
-    <div class="form-group">
-        <label for="codigo">Código: </label>
-        <input type="text" class="form-control tamanho90" id="codigo" name="codigo" />
-    </div>
-    <button type="submit" class="btn=btn-success">Pesquisar</button>
-</form>
-<p style="text-align: right"><a class="btn btn-primary" href="{% url 'etapas_jogo_novo' %}">Cadastrar Nova Etapa</a></p>
-<table class="table">
+<p style="text-align: left"><a class="btn btn-primary" href="{% url 'etapas_jogo_novo' %}">Cadastrar Nova Etapa</a></p>
+<table class="table table-bordered" id="datatable" cellspacing="0" width="100%">
+    <thead>
     <tr>
         <th>
             Código
@@ -32,6 +26,8 @@
             Fase
         </th>
     </tr>
+    </thead>
+    <tbody>
     {% for item in etapas_jogo %}
     <tr>
         <td>
@@ -58,6 +54,7 @@
         </td>
     </tr>
     {% endfor %}
+    </tbody>
 </table>
 
 {% endblock %}

@@ -3,16 +3,10 @@
 {% block content %}
     
 <h1>Niveis de Competencia Avaliação</h1>
-<form method="get">
-    <div class="form-group">
-        <label for="codigo">Código: </label>
-        <input type="text" class="form-control tamanho90" id="codigo" name="codigo" />
-    </div>
-    <button type="submit" class="btn=btn-success">Pesquisar</button>
-</form>
-<p style="text-align: right"><a class="btn btn-primary" href="{% url 'niveis_competencia_avaliacao_novo' %}">Cadastrar Novo Nível de Competência</a></p>
+<p style="text-align: left"><a class="btn btn-primary" href="{% url 'niveis_competencia_avaliacao_novo' %}">Cadastrar Novo Nível de Competência</a></p>
 <div class="responsive">
-    <table class="table">
+    <table class="table table-bordered" id="datatable" cellspacing="0" width="100%">
+    <thead>
         <tr>
             <th>
                 Código
@@ -33,6 +27,8 @@
                 Percentual de Jogadores nesse nível de Competencia
             </th>
         </tr>
+    </thead>
+    <tbody>
         {% for nivel in niveis_competencia_avaliacao %}
         <tr>
             <td>
@@ -59,6 +55,7 @@
             </td>
         </tr>
         {% endfor %}
+    </tbody>
     </table>
 </div>
 

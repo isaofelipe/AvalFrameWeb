@@ -2,12 +2,13 @@
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
+#   * Make sure each ForeignKey has `on_delete` set to the desidered behavior.
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from __future__ import unicode_literals
 
 from django.db import models
+
 
 class Aeej(models.Model):
     codigo = models.AutoField(primary_key=True)
@@ -19,8 +20,6 @@ class Aeej(models.Model):
         managed = False
         db_table = 'aeej'
 
-    def __str__(self):
-        return '%s - %s' % (self.codigo, self.descricao)
 
 class Aprendizagens(models.Model):
     codigo = models.AutoField(primary_key=True)
@@ -30,10 +29,8 @@ class Aprendizagens(models.Model):
     class Meta:
         managed = False
         db_table = 'aprendizagens'
-    
-    def __str__(self):
-        return '%s - %s' % (self.codigo, self.titulo)
-        
+
+
 class AprendizagensAeej(models.Model):
     codigo = models.AutoField(primary_key=True)
     codigo_aprendizagem = models.ForeignKey(Aprendizagens, models.DO_NOTHING, db_column='codigo_aprendizagem')
@@ -51,7 +48,88 @@ class AprendizagensAeej(models.Model):
         managed = False
         db_table = 'aprendizagens_aeej'
         unique_together = (('codigo_aprendizagem', 'codigo_jogo', 'nivel_jogo', 'fase_jogo', 'etapa_jogo', 'codigo_aeej'),)
-        
+
+
+class AuthGroup(models.Model):
+    name = models.CharField(unique=True, max_length=80)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group'
+
+
+class AuthGroupPermissions(models.Model):
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+    permission = models.ForeignKey('AuthPermission', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_group_permissions'
+        unique_together = (('group', 'permission'),)
+
+
+class AuthPermission(models.Model):
+    name = models.CharField(max_length=255)
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING)
+    codename = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_permission'
+        unique_together = (('content_type', 'codename'),)
+
+
+class AuthUser(models.Model):
+    password = models.CharField(max_length=128)
+    last_login = models.DateTimeField(blank=True, null=True)
+    is_superuser = models.IntegerField()
+    username = models.CharField(unique=True, max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.CharField(max_length=254)
+    is_staff = models.IntegerField()
+    is_active = models.IntegerField()
+    date_joined = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user'
+
+
+class AuthUserGroups(models.Model):
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    group = models.ForeignKey(AuthGroup, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_groups'
+        unique_together = (('user', 'group'),)
+
+
+class AuthUserUserPermissions(models.Model):
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+    permission = models.ForeignKey(AuthPermission, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'auth_user_user_permissions'
+        unique_together = (('user', 'permission'),)
+
+
+class BaseConsolidada(models.Model):
+    codigo = models.AutoField(primary_key=True)
+    codigo_jogador = models.IntegerField(blank=True, null=True)
+    data_inicio_jogo = models.DateField(blank=True, null=True)
+    hora_inicio_jogo = models.TimeField(blank=True, null=True)
+    codigo_jogo = models.IntegerField(blank=True, null=True)
+    codigo_aprendizagem = models.IntegerField(blank=True, null=True)
+    valor_aprendizagem = models.FloatField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'base_consolidada'
+
+
 class Competencias(models.Model):
     codigo = models.AutoField(primary_key=True)
     titulo = models.CharField(unique=True, max_length=30)
@@ -60,9 +138,6 @@ class Competencias(models.Model):
     class Meta:
         managed = False
         db_table = 'competencias'
-        
-    def __str__(self):
-        return '%s - %s' % (self.codigo, self.titulo)
 
 
 class CompetenciasAprendizagens(models.Model):
@@ -75,7 +150,7 @@ class CompetenciasAprendizagens(models.Model):
         managed = False
         db_table = 'competencias_aprendizagens'
         unique_together = (('codigo_competencia', 'codigo_aprendizagem'),)
-    
+
 
 class DispositivosCaptura(models.Model):
     codigo = models.AutoField(primary_key=True)
@@ -85,8 +160,50 @@ class DispositivosCaptura(models.Model):
         managed = False
         db_table = 'dispositivos_captura'
 
-    def __str__(self):
-        return '%s - %s' % (self.codigo, self.nome)
+
+class DjangoAdminLog(models.Model):
+    action_time = models.DateTimeField()
+    object_id = models.TextField(blank=True, null=True)
+    object_repr = models.CharField(max_length=200)
+    action_flag = models.SmallIntegerField()
+    change_message = models.TextField()
+    content_type = models.ForeignKey('DjangoContentType', models.DO_NOTHING, blank=True, null=True)
+    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'django_admin_log'
+
+
+class DjangoContentType(models.Model):
+    app_label = models.CharField(max_length=100)
+    model = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'django_content_type'
+        unique_together = (('app_label', 'model'),)
+
+
+class DjangoMigrations(models.Model):
+    app = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    applied = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_migrations'
+
+
+class DjangoSession(models.Model):
+    session_key = models.CharField(primary_key=True, max_length=40)
+    session_data = models.TextField()
+    expire_date = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'django_session'
+
 
 class EtapasJogo(models.Model):
     codigo = models.AutoField(primary_key=True)
@@ -100,9 +217,6 @@ class EtapasJogo(models.Model):
         managed = False
         db_table = 'etapas_jogo'
         unique_together = (('etapa', 'codigo_jogo', 'codigo_nivel', 'codigo_fase'),)
-        
-    def __str__(self):
-        return '%s - %s' % (self.etapa, self.titulo)
 
 
 class FasesJogo(models.Model):
@@ -116,9 +230,29 @@ class FasesJogo(models.Model):
         managed = False
         db_table = 'fases_jogo'
         unique_together = (('fase', 'codigo_jogo', 'codigo_nivel'),)
-        
-    def __str__(self):
-        return '%s - %s' % (self.fase, self.titulo)
+
+
+class HistoricoRegistro(models.Model):
+    codigo = models.AutoField(primary_key=True)
+    codigo_jogador = models.IntegerField(blank=True, null=True)
+    data_inicio_jogo = models.DateField(blank=True, null=True)
+    hora_inicio_jogo = models.TimeField(blank=True, null=True)
+    codigo_jogo = models.IntegerField(blank=True, null=True)
+    nivel_jogo = models.IntegerField(blank=True, null=True)
+    fase_jogo = models.IntegerField(blank=True, null=True)
+    etapa_jogo = models.IntegerField(blank=True, null=True)
+    codigo_aeej = models.IntegerField(blank=True, null=True)
+    tipo_aeej = models.CharField(max_length=1, blank=True, null=True)
+    valor1 = models.IntegerField(blank=True, null=True)
+    valor2 = models.IntegerField(blank=True, null=True)
+    valor3 = models.IntegerField(blank=True, null=True)
+    data_gravacao = models.DateField(blank=True, null=True)
+    hora_gravacao = models.TimeField(blank=True, null=True)
+    nome_arquivo = models.CharField(max_length=45, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'historico_registro'
 
 
 class Jogadores(models.Model):
@@ -131,9 +265,6 @@ class Jogadores(models.Model):
     class Meta:
         managed = False
         db_table = 'jogadores'
-    
-    def __str__(self):
-        return '%s - %s' % (self.codigo, self.nome)
 
 
 class JogosDigitais(models.Model):
@@ -143,9 +274,6 @@ class JogosDigitais(models.Model):
     class Meta:
         managed = False
         db_table = 'jogos_digitais'
-        
-    def __str__(self):
-        return '%s - %s' % (self.codigo, self.titulo)
 
 
 class NiveisAprendizagem(models.Model):
@@ -161,9 +289,6 @@ class NiveisAprendizagem(models.Model):
         managed = False
         db_table = 'niveis_aprendizagem'
         unique_together = (('nivel', 'codigo_aprendizagem'),)
-        
-    def __str__(self):
-        return '%s - %s' % (self.codigo, self.titulo)
 
 
 class NiveisCompetenciaAvaliacao(models.Model):
@@ -177,9 +302,6 @@ class NiveisCompetenciaAvaliacao(models.Model):
     class Meta:
         managed = False
         db_table = 'niveis_competencia_avaliacao'
-        
-    def __str__(self):
-        return '%s - %s' % (self.codigo, self.titulo)
 
 
 class NiveisJogo(models.Model):
@@ -192,6 +314,16 @@ class NiveisJogo(models.Model):
         managed = False
         db_table = 'niveis_jogo'
         unique_together = (('codigo_jogo', 'nivel'),)
+
+class ViewAlunoAprendizagem(models.Model):
+    codigo = models.AutoField(primary_key=True)
+    nome_jogador = models.CharField(max_length=30)
+    titulo_aprendizagem = models.CharField(max_length=30)
+    data_inicio_jogo = models.DateField()
+    hora_inicio_jogo = models.TimeField()
+    valor_aprendizagem = models.FloatField()
+    titulo_nivel_aprendizagem = models.CharField(max_length=20)
     
-    def __str__(self):
-        return '%s - %s' % (self.codigo, self.titulo)
+    class Meta:
+        managed = False
+        db_table = 'vw_aluno_aprendizagem'

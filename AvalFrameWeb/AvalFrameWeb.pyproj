@@ -33,7 +33,6 @@
     <Compile Include="app\forms_carga.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\models_antigo.py" />
-    <Compile Include="app\models_carga.py" />
     <Compile Include="app\tests.py" />
     <Compile Include="app\urls\aeej\urls.py" />
     <Compile Include="app\urls\aeej\__init__.py" />
@@ -86,15 +85,20 @@
     <Compile Include="app\views\__init__.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="AvalFrameWeb\settings.py" />
     <Compile Include="manage.py" />
     <Compile Include="AvalFrameWeb\__init__.py" />
-    <Compile Include="AvalFrameWeb\settings.py" />
+    <Compile Include="AvalFrameWeb\settings_C9.py" />
     <Compile Include="AvalFrameWeb\urls.py" />
     <Compile Include="AvalFrameWeb\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
     <Folder Include="app\migrations\" />
+    <Folder Include="app\static\app\scripts\DataTables-1.10.16\" />
+    <Folder Include="app\static\app\scripts\DataTables-1.10.16\css\" />
+    <Folder Include="app\static\app\scripts\DataTables-1.10.16\images\" />
+    <Folder Include="app\static\app\scripts\DataTables-1.10.16\js\" />
     <Folder Include="app\templates\app\" />
     <Folder Include="app\templates\carga_aprendizagens\" />
     <Folder Include="app\templates\CRUDs\" />
@@ -153,6 +157,40 @@
     <Folder Include="AvalFrameWeb\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.bootstrap.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.bootstrap.min.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.bootstrap4.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.bootstrap4.min.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.foundation.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.foundation.min.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.jqueryui.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.jqueryui.min.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.semanticui.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\dataTables.semanticui.min.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\jquery.dataTables.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\css\jquery.dataTables.min.css" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\images\sort_asc.png" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\images\sort_asc_disabled.png" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\images\sort_both.png" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\images\sort_desc.png" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\images\sort_desc_disabled.png" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.bootstrap.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.bootstrap.min.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.bootstrap4.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.bootstrap4.min.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.foundation.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.foundation.min.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.jqueryui.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.jqueryui.min.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.semanticui.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\dataTables.semanticui.min.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\jquery.dataTables.js" />
+    <Content Include="app\static\app\scripts\DataTables-1.10.16\js\jquery.dataTables.min.js" />
+    <Content Include="app\static\app\scripts\datatables.css" />
+    <Content Include="app\static\app\scripts\datatables.js" />
+    <Content Include="app\static\app\scripts\datatables.min.css" />
+    <Content Include="app\static\app\scripts\datatables.min.js" />
+    <Content Include="app\static\app\scripts\site_scripts.js" />
     <Content Include="app\templates\app\about.html" />
     <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\index.html" />
@@ -199,6 +237,8 @@
     <Content Include="app\templates\CRUDs\niveis_jogo\deletar.html" />
     <Content Include="app\templates\CRUDs\niveis_jogo\index.html" />
     <Content Include="app\templates\CRUDs\niveis_jogo\novo_alterar.html" />
+    <Content Include="app\templates\geracao_relatorio\competencias.html" />
+    <Content Include="app\templates\geracao_relatorio\aprendizagens.html" />
     <Content Include="app\templates\geracao_relatorio\index.html" />
     <Content Include="app\urls\aeej\urls.pyc" />
     <Content Include="app\urls\aeej\__init__.pyc" />

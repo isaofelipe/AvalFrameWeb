@@ -8,8 +8,6 @@ from app.forms import *
 from app.models import *
 from django.shortcuts import render_to_response
 import json
-from app.models_carga import *
-from app.forms_carga import *
 import re
 
 

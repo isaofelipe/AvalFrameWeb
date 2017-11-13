@@ -3,15 +3,9 @@
 {% block content %}
     
 <h1>Níveis de Aprendizagem</h1>
-<form method="get">
-    <div class="form-group">
-        <label for="codigo">Código: </label>
-        <input type="text" class="form-control tamanho90" id="codigo" name="codigo" />
-    </div>
-    <button type="submit" class="btn=btn-success">Pesquisar</button>
-</form>
-<p style="text-align: right"><a class="btn btn-primary" href="{% url 'niveis_aprendizagem_novo' %}">Cadastrar Novo Nível de Aprendizagem</a></p>
-<table class="table">
+<p style="text-align: left"><a class="btn btn-primary" href="{% url 'niveis_aprendizagem_novo' %}">Cadastrar Novo Nível de Aprendizagem</a></p>
+<table class="table table-bordered" id="datatable" cellspacing="0" width="100%">
+    <thead>
     <tr>
         <th>
             Código
@@ -26,15 +20,17 @@
             Título
         </th>
         <th>
-            Percentual do Valor Máximo da Aprendizagem que indica o inicio do Nível
+            Percentual Inicio
         </th>
         <th>
-            Percentual do Valor Máximo da Aprendizagem  que Indica o fim do Nível
+            Percentual fim
         </th>
         <th>
-            Percentual de Jogadores nesse nível de Aprendizagem
+            Percentual de Jogadores
         </th>
     </tr>
+    </thead>
+    <tbody>
     {% for item in niveis_aprendizagem %}
     <tr>
         <td>
@@ -64,6 +60,7 @@
         </td>
     </tr>
     {% endfor %}
+    </tbody>
 </table>
 
 {% endblock %}
