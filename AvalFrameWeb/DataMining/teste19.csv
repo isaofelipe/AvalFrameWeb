@@ -1,0 +1,11 @@
+Sexo,idade,DataDesdJoga,CoefienteRend,TipoJogoGosta,PerfilJogador
+F,18,2009,18,'rpg','dificil'
+F,19,2010,89,'pilotagem','muitoDificil'
+M,17,2011,92,'FPS','muitoFacil'
+F,21,2012,98,'exploracao','muitoDificil'
+M,22,2008,100,'pilotagem','medio'
+F,15,2007,75,'socializacao','facil'
+F,16,2005,80,'FPS','muitoFacil'
+M,25,2003,81,'exploracao','facil'
+M,22,2001,17,'socializacao','medio'
+

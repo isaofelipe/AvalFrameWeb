@@ -30,6 +30,7 @@ class index(View):
                     itens[(i.codigo_jogador, j.codigo)] += i.valor_aprendizagem * float(j.contribuicao_da_aprendizagem_na_competencia) / competencia.valor_maximo_pontos
         
         itensRelatorioCompetencias = []
+        nome_anterior = ""
         for i in itens:
             nomeJogador = jogadores.get(codigo = i[0]).nome
             tituloCompetencia = competencias.get(codigo = i[1]).titulo
@@ -39,9 +40,32 @@ class index(View):
             for j in niveisCompetenciaRelacionados:
                 if float(j.inicio_nivel) < itens[i] and float(j.fim_nivel) > itens[i]:
                     tituloNivelCompetencia = j.titulo
+            if nomeJogador == nome_anterior:
+                nome_anterior = nomeJogador
+                nomeJogador = ""
+            else:
+                nome_anterior = nomeJogador
             itensRelatorioCompetencias.append(ItensRelatorioCompetencias(nomeJogador, tituloCompetencia, tituloNivelCompetencia))
+            
 
-            itensRelatorioAprendizagens = ViewAlunoAprendizagem.objects.all()
+        itensRelatorioAprendizagens = ViewAlunoAprendizagem.objects.all()
+
+        nome_anterior = ""
+        data_anterior = ""
+        hora_anterior = ""
+        for item in itensRelatorioAprendizagens:
+            if nome_anterior == item.nome_jogador and data_anterior == item.data_inicio_jogo and hora_anterior == item.hora_inicio_jogo:
+                nome_anterior = item.nome_jogador
+                data_anterior = item.data_inicio_jogo
+                hora_anterior = item.hora_inicio_jogo
+                item.nome_jogador = ""
+                item.data_inicio_jogo = ""
+                item.hora_inicio_jogo = ""
+            else:
+                nome_anterior = item.nome_jogador
+                data_anterior = item.data_inicio_jogo
+                hora_anterior = item.hora_inicio_jogo
+
         return render(
             request,
             'geracao_relatorio/index.html',

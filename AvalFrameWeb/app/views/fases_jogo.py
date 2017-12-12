@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http.response import JsonResponse
 from django.http import HttpRequest
 from django.template import RequestContext
 from django.shortcuts import redirect
@@ -77,3 +78,17 @@ class deletar(View):
         item = FasesJogo.objects.get(codigo=codigo)
         item.delete()
         return redirect('fases_jogo_index')
+
+def buscar_niveis(request):
+    codigo_jogo = request.GET.get('codigo_jogo', None)
+    niveis = NiveisJogo.objects.filter(codigo_jogo = codigo_jogo)
+    opcoes = []
+    for nivel in niveis:
+        opcoes.append({'codigo':nivel.codigo,
+                       'nivel':nivel.nivel,
+                       'titulo':nivel.titulo,
+                       })
+    data = {
+        'opcoes' : opcoes,
+    }
+    return JsonResponse(data)

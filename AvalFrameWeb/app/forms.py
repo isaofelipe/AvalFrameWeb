@@ -60,7 +60,7 @@ class JogosDigitais_Form(Form_Bootstrap):
 class Jogadores_Form(Form_Bootstrap):
     class Meta:
         model = Jogadores
-        fields = ['nome', 'sexo', 'data_nascimento', 'data_desde_quando_joga']
+        fields = ['nome', 'sexo', 'data_nascimento', 'data_desde_quando_joga', 'coeficiente_de_rendimento', 'tipo_jogo_preferido', 'perfil_recomendacao']
         
 class AprendizagensAeej_Form(Form_Bootstrap):
     class Meta:
@@ -76,10 +76,10 @@ class EtapasJogo_Form(Form_Bootstrap):
     class Meta:
         model = EtapasJogo
         fields = ['etapa', 'codigo_jogo', 'codigo_nivel', 'codigo_fase', 'titulo']
-        widgets = {
-            'codigo_nivel': TextInput(),
-            'codigo_fase' : TextInput(),
-            }
+        # widgets = {
+        #     'codigo_nivel': TextInput(),
+        #     'codigo_fase' : TextInput(),
+        #     }
 
     def clean_codigo_nivel(self):
         try:
@@ -105,9 +105,9 @@ class FasesJogo_Form(Form_Bootstrap):
     class Meta:
         model = FasesJogo
         fields = ['fase','codigo_jogo','codigo_nivel','titulo']
-        widgets = {
-            'codigo_nivel': TextInput(),
-            }
+        # widgets = {
+        #     'codigo_nivel': TextInput(),
+        #    }
         
     def clean_codigo_nivel(self):
         try:

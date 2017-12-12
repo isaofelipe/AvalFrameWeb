@@ -28,7 +28,7 @@ class index(View):
             lista = []
             for linha in arquivo:
                 instancia = re.split(" '|' | |\r\n",linha.decode())
-                item = RelatorioAlunos(codigo_jogador=instancia[0], data_inicio_sessao_jogo=instancia[1], hora_inicio_sessao_jogo=instancia[2], codigo_jogo=instancia[3], nivel_jogo=instancia[4], fase_jogo=instancia[5], etapa_jogo=instancia[6], tipo_aeej=instancia[7], codigo_aeej=instancia[8], valor_aeej=instancia[9], data_gravacao=instancia[10], hora_gravacao=instancia[11])
+                item = HistoricoRegistro(codigo_jogador=instancia[0], data_inicio_jogo=instancia[1], hora_inicio_jogo=instancia[2], codigo_jogo=instancia[3], nivel_jogo=instancia[4], fase_jogo=instancia[5], etapa_jogo=instancia[6], tipo_aeej=instancia[7], codigo_aeej=instancia[8], valor1=instancia[9], valor2=instancia[10], valor3=instancia[11], data_gravacao=instancia[12], hora_gravacao=instancia[13], nome_arquivo=instancia[14])
                 lista.append(item)
                 item.save(using='base_historica')
             processa_aprendizagens(lista)
@@ -57,5 +57,8 @@ def processa_aprendizagens(lista):
             lista_aprendizagem_aeej.append(AprendizagensAeej.objects.filter(codigo_jogo = instancia.codigo_jogo, nivel_jogo = instancia.nivel_jogo, fase_jogo = instancia.fase_jogo,
                 etapa_jogo = instancia.fase_jogo, codigo_aeej= instancia.codigo_aeej))
         else:
-            verificador = linha
+
+
+
+            verificador = instancia
          

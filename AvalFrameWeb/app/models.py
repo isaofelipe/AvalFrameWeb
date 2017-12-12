@@ -6,7 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from __future__ import unicode_literals
-
+from django.utils.encoding import force_text
 from django.db import models
 
 
@@ -25,6 +25,7 @@ class Aprendizagens(models.Model):
     codigo = models.AutoField(primary_key=True)
     tipo = models.CharField(max_length=1)
     titulo = models.CharField(unique=True, max_length=30)
+    valor_maximo = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -185,16 +186,6 @@ class DjangoContentType(models.Model):
         unique_together = (('app_label', 'model'),)
 
 
-class DjangoMigrations(models.Model):
-    app = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
-    applied = models.DateTimeField()
-
-    class Meta:
-        managed = False
-        db_table = 'django_migrations'
-
-
 class DjangoSession(models.Model):
     session_key = models.CharField(primary_key=True, max_length=40)
     session_data = models.TextField()
@@ -217,6 +208,9 @@ class EtapasJogo(models.Model):
         managed = False
         db_table = 'etapas_jogo'
         unique_together = (('etapa', 'codigo_jogo', 'codigo_nivel', 'codigo_fase'),)
+        
+    def __str__(self):
+        return '%s - %s' % (self.etapa, self.titulo.encode('utf8'))
 
 
 class FasesJogo(models.Model):
@@ -230,6 +224,9 @@ class FasesJogo(models.Model):
         managed = False
         db_table = 'fases_jogo'
         unique_together = (('fase', 'codigo_jogo', 'codigo_nivel'),)
+        
+    def __str__(self):
+        return '%s - %s' % (self.fase, self.titulo.encode('utf8'))
 
 
 class HistoricoRegistro(models.Model):
@@ -241,8 +238,8 @@ class HistoricoRegistro(models.Model):
     nivel_jogo = models.IntegerField(blank=True, null=True)
     fase_jogo = models.IntegerField(blank=True, null=True)
     etapa_jogo = models.IntegerField(blank=True, null=True)
-    codigo_aeej = models.IntegerField(blank=True, null=True)
     tipo_aeej = models.CharField(max_length=1, blank=True, null=True)
+    codigo_aeej = models.IntegerField(blank=True, null=True)
     valor1 = models.IntegerField(blank=True, null=True)
     valor2 = models.IntegerField(blank=True, null=True)
     valor3 = models.IntegerField(blank=True, null=True)
@@ -261,6 +258,9 @@ class Jogadores(models.Model):
     sexo = models.CharField(max_length=1, blank=True, null=True)
     data_nascimento = models.DateField(blank=True, null=True)
     data_desde_quando_joga = models.DateField(blank=True, null=True)
+    coeficiente_de_rendimento = models.FloatField(blank=True, null=True)
+    tipo_jogo_preferido = models.IntegerField(blank=True, null=True)
+    perfil_recomendacao = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -274,6 +274,9 @@ class JogosDigitais(models.Model):
     class Meta:
         managed = False
         db_table = 'jogos_digitais'
+        
+    def __str__(self):
+        return '%s - %s' % (self.codigo, self.titulo)
 
 
 class NiveisAprendizagem(models.Model):
@@ -314,7 +317,10 @@ class NiveisJogo(models.Model):
         managed = False
         db_table = 'niveis_jogo'
         unique_together = (('codigo_jogo', 'nivel'),)
-
+        
+    def __str__(self):
+        return '%s - %s' % (self.nivel, force_text(self.titulo))
+        
 class ViewAlunoAprendizagem(models.Model):
     codigo = models.AutoField(primary_key=True)
     nome_jogador = models.CharField(max_length=30)

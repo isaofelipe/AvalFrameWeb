@@ -9,6 +9,7 @@ from django.conf.urls import include
 
 import app.forms
 from app.views import home
+from app.views import analise_dados
 
 # Uncomment the next lines to enable the admin:
 # from django.conf.urls import include
@@ -17,6 +18,7 @@ from app.views import home
 
 urlpatterns = [
     # Examples:
+    url(r'^analise_dados/', include('app.urls.analise_dados.urls')),
     url(r'^$', home.home, name='home'),
     url(r'^competencias/', include('app.urls.competencias.urls')),
     url(r'^niveis_competencia_avaliacao/', include('app.urls.niveis_competencia_avaliacao.urls')),
@@ -36,6 +38,7 @@ urlpatterns = [
     url(r'^carga_aprendizagens/', include('app.urls.carga_aprendizagens.urls')),
     
     url(r'^geracao_relatorio/', include('app.urls.geracao_relatorio.urls')),
+    
     
 
     #url(r'^login/$',
