@@ -23,6 +23,15 @@
             Data desde quando joga
         </th>
         <th>
+            Coeficiente de rendimento
+        </th>
+        <th>
+            Tipo de jogo preferido
+        </th>
+        <th>
+            Perfil de recomendação
+        </th>
+        <th>
             Ações
         </th>
     </tr>
@@ -44,6 +53,15 @@
         </td>
         <td>
             {{item.data_desde_quando_joga}}
+        </td>
+        <td>
+            {{item.coeficiente_de_rendimento}}
+        </td>
+        <td>
+            {{item.tipo_jogo_preferido}}
+        </td>
+        <td>
+            {{item.perfil_recomendacao}}
         </td>
         <td>
             <a class="btn btn-warning" href="{% url 'jogadores_alterar' codigo=item.codigo %}">Alterar</a>

@@ -34,6 +34,8 @@
     <Compile Include="app\forms_carga.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\models_antigo.py" />
+    <Compile Include="app\templatetags\tags.py" />
+    <Compile Include="app\templatetags\__init__.py" />
     <Compile Include="app\tests.py" />
     <Compile Include="app\urls\aeej\urls.py" />
     <Compile Include="app\urls\aeej\__init__.py" />
@@ -97,6 +99,7 @@
   <ItemGroup>
     <Folder Include="app\" />
     <Folder Include="app\migrations\" />
+    <Folder Include="app\templatetags\" />
     <Folder Include="app\static\app\scripts\DataTables-1.10.16\" />
     <Folder Include="app\static\app\scripts\DataTables-1.10.16\css\" />
     <Folder Include="app\static\app\scripts\DataTables-1.10.16\images\" />

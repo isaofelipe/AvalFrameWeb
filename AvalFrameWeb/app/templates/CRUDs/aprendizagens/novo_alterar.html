@@ -40,6 +40,11 @@
         <input id="titulo" type="text" name="titulo" class="form-control" value="{{aprendizagem.titulo}}"/>
         <span class="help-block">{{form.errors.titulo.0}}</span>
     </div>
+    <div class="form-group">
+        <label for="valor_maximo">Valor máximo: </label>
+        <input type="text" id="valor_maximo" name="valor_maximo" class="form-control" value="{{aprendizagem.valor_maximo}}"/> 
+        <span class="help-block">{{form.errors.valor_maximo.0}}</span>
+    </div>
     <button type="submit" class="btn btn-success">Cadastrar</button>
 </form>
 

@@ -51,6 +51,14 @@
                     <li><a href="{% url 'carga_aprendizagens_index' %}">Carga das Aprendizagens</a></li>
                     <li><a href="{% url 'geracao_relatorio_index' %}">Geração de Relatório</a></li>
                     <li><a href="{% url 'analise_dados_index' %}">Análise de Dados</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="">Game</a></li>
+                            <li><a href="">Agentes Inteligentes</a></li>
+
+                        </ul>
+                    </li>
                 </ul>
                 {% include 'app/loginpartial.html' %}
             </div>

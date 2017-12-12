@@ -13,7 +13,7 @@ class index(View):
     def get(self, request, *args, **kwargs):
         codigo = request.GET.get('codigo', None)
         niveis_aprendizagem = NiveisAprendizagem.objects.all().order_by('codigo')
-        
+
         if codigo:
             niveis_aprendizagem = niveis_aprendizagem.filter(codigo = codigo)
         return render(

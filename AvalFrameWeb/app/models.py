@@ -20,6 +20,9 @@ class Aeej(models.Model):
         managed = False
         db_table = 'aeej'
 
+    def __str__(self):
+        return '%s - %s' % (self.codigo, self.descricao)
+
 
 class Aprendizagens(models.Model):
     codigo = models.AutoField(primary_key=True)
@@ -30,6 +33,9 @@ class Aprendizagens(models.Model):
     class Meta:
         managed = False
         db_table = 'aprendizagens'
+
+    def __str__(self):
+        return '%s - %s' % (self.codigo, self.titulo)
 
 
 class AprendizagensAeej(models.Model):
@@ -161,6 +167,9 @@ class DispositivosCaptura(models.Model):
         managed = False
         db_table = 'dispositivos_captura'
 
+    def __str__(self):
+        return '%s - %s' % (self.codigo, self.nome)
+
 
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
@@ -210,7 +219,7 @@ class EtapasJogo(models.Model):
         unique_together = (('etapa', 'codigo_jogo', 'codigo_nivel', 'codigo_fase'),)
         
     def __str__(self):
-        return '%s - %s' % (self.etapa, self.titulo.encode('utf8'))
+        return '%s - %s' % (self.etapa, self.titulo)
 
 
 class FasesJogo(models.Model):
@@ -226,7 +235,7 @@ class FasesJogo(models.Model):
         unique_together = (('fase', 'codigo_jogo', 'codigo_nivel'),)
         
     def __str__(self):
-        return '%s - %s' % (self.fase, self.titulo.encode('utf8'))
+        return '%s - %s' % (self.fase, self.titulo)
 
 
 class HistoricoRegistro(models.Model):

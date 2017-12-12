@@ -1,5 +1,5 @@
 ﻿{% extends "app/layout.html" %}
-
+{% load tags %}
 {% block content %}
     
 <h1>Aprendizagens x AEEJ</h1>
@@ -80,7 +80,7 @@
                 {{item.valor_padrao}}
             </td>
             <td>
-                {{item.contribuicao_do_aeej_na_aprendizagem}}
+                {% porcentagem item.contribuicao_do_aeej_na_aprendizagem%}
             </td>
             <td>
                 <a class="btn btn-warning" href="{% url 'aprendizagens_aeej_alterar' codigo=item.codigo %}">Alterar</a>

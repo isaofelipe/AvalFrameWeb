@@ -149,16 +149,7 @@ def classifica(sexo,idade,data_desde_quando_joga,coeficiente_de_rendimento,tipo_
     vet.append(data_desde_quando_joga)
     vet.append(coeficiente_de_rendimento)
     
-    if tipo_jogo_preferido == 'FPS':
-        vet.append(0)
-    if tipo_jogo_preferido == 'rpg':
-        vet.append(0)
-    if tipo_jogo_preferido == 'pilotagem':
-        vet.append(0)
-    if tipo_jogo_preferido == 'exploracao':
-        vet.append(0)
-    if tipo_jogo_preferido == 'socializacao':
-        vet.append(0)
+    vet.append(tipo_jogo_preferido)
     
     resultado = clf.predict([vet])
     return int(resultado[0])

@@ -17,5 +17,5 @@ urlpatterns = [
     url(r'^novo_alterar/(?P<codigo>\d+)$', etapas_jogo.novo_alterar.as_view(), name='etapas_jogo_alterar'),
     url(r'^deletar/(?P<codigo>\d+)$', etapas_jogo.deletar.as_view(), name='etapas_jogo_deletar'),
     url(r'^novo_alterar/gerar_niveis$', etapas_jogo.buscar_niveis, name='gerar_niveis'),
-    url(r'^novo_alterar/etapas_gerar_fases$', etapas_jogo.buscar_fases, name='etapas_gerar_fases'),
+    url(r'^novo_alterar/gerar_fases$', etapas_jogo.buscar_fases, name='gerar_fases'),
 ]

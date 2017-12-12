@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http.response import JsonResponse
 from django.http import HttpRequest
 from django.template import RequestContext
 from django.shortcuts import redirect
@@ -72,3 +73,45 @@ class deletar(View):
         item = AprendizagensAeej.objects.get(codigo=codigo)
         item.delete()
         return redirect('aprendizagens_aeej_index')
+
+def buscar_niveis(request):
+    codigo_jogo = request.GET.get('codigo_jogo', None)
+    niveis = NiveisJogo.objects.filter(codigo_jogo = codigo_jogo)
+    opcoes = []
+    for nivel in niveis:
+        opcoes.append({'codigo':nivel.codigo,
+                       'nivel':nivel.nivel,
+                       'titulo':nivel.titulo,
+                       })
+    data = {
+        'opcoes' : opcoes,
+    }
+    return JsonResponse(data)
+
+def buscar_fases(request):
+    codigo_nivel = request.GET.get('nivel_jogo', None)
+    fases = FasesJogo.objects.filter(codigo_nivel = codigo_nivel)
+    opcoes = []
+    for fase in fases:
+        opcoes.append({'codigo':fase.codigo,
+                       'fase':fase.fase,
+                       'titulo':fase.titulo,
+                       })
+    data = {
+        'opcoes' : opcoes,
+    }
+    return JsonResponse(data)
+
+def buscar_etapas(request):
+    codigo_etapa = request.GET.get('etapa_jogo', None)
+    etapas = EtapasJogo.objects.filter(codigo_etapa = codigo_etapa)
+    opcoes = []
+    for etapa in etapas:
+        opcoes.append({'codigo':etapa.codigo,
+                       'fase':etapa.etapa,
+                       'titulo':etapa.titulo,
+                       })
+    data = {
+        'opcoes' : opcoes,
+    }
+    return JsonResponse(data)

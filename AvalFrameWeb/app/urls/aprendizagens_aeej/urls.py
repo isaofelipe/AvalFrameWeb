@@ -21,4 +21,7 @@ urlpatterns = [
     url(r'^novo_alterar/$', aprendizagens_aeej.novo_alterar.as_view(), name='aprendizagens_aeej_novo'),
     url(r'^novo_alterar/(?P<codigo>\d+)$', aprendizagens_aeej.novo_alterar.as_view(), name='aprendizagens_aeej_alterar'),
     url(r'^deletar/(?P<codigo>\d+)$', aprendizagens_aeej.deletar.as_view(), name='aprendizagens_aeej_deletar'),
+    url(r'^novo_alterar/gerar_niveis$', aprendizagens_aeej.buscar_niveis, name='gerar_niveis'),
+    url(r'^novo_alterar/gerar_fases$', aprendizagens_aeej.buscar_fases, name='gerar_fases'),
+    url(r'^novo_alterar/gerar_etapas$', aprendizagens_aeej.buscar_fases, name='gerar_etapas'),
 ]

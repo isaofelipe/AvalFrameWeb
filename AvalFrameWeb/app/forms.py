@@ -25,7 +25,7 @@ class Aeej_Form(Form_Bootstrap):
 class Aprendizagens_Form(Form_Bootstrap):
     class Meta:
         model = Aprendizagens
-        fields = ['tipo', 'titulo']
+        fields = ['tipo', 'titulo', 'valor_maximo']
 
 class Competencias_Form(Form_Bootstrap):
     class Meta:

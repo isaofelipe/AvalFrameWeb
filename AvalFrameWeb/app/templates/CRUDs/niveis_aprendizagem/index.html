@@ -1,4 +1,5 @@
 ﻿{% extends "app/layout.html" %}
+{% load tags %}
 
 {% block content %}
     
@@ -7,9 +8,6 @@
 <table class="table table-bordered" id="datatable" cellspacing="0" width="100%">
     <thead>
     <tr>
-        <th>
-            Código
-        </th>
         <th>
             Nível
         </th>
@@ -34,9 +32,6 @@
     {% for item in niveis_aprendizagem %}
     <tr>
         <td>
-            {{item.codigo}}
-        </td>
-        <td>
             {{item.nivel}}
         </td>
         <td>
@@ -46,13 +41,13 @@
             {{item.titulo}}
         </td>
         <td>
-            {{item.inicio_nivel}} 
+            {%porcentagem item.inicio_nivel%}
         </td>
         <td>
-            {{item.fim_nivel}}
+            {%porcentagem item.fim_nivel%}
         </td>
         <td>
-            {{item.jogadores_nesse_nivel}}
+            {%porcentagem item.jogadores_nesse_nivel%}
         </td>
         <td>
             <a class="btn btn-warning" href="{% url 'niveis_aprendizagem_alterar' codigo=item.codigo %}">Alterar</a>

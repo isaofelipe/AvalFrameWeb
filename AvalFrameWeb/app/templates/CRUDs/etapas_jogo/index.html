@@ -8,16 +8,13 @@
     <thead>
     <tr>
         <th>
-            Código
-        </th>
-        <th>
             Etapa
         </th>
         <th>
             Título
         </th>
         <th>
-            Código do Jogo
+            Jogo
         </th>
         <th>
             Nível
@@ -25,14 +22,14 @@
         <th>
             Fase
         </th>
+        <th>
+            Ações
+        </th>
     </tr>
     </thead>
     <tbody>
     {% for item in etapas_jogo %}
     <tr>
-        <td>
-            {{item.codigo}}
-        </td>
         <td>
             {{item.etapa}}
         </td>
@@ -40,7 +37,7 @@
             {{item.titulo}}
         </td>
         <td>
-            {{item.codigo_jogo.codigo}}
+            {{item.codigo_jogo}}
         </td>
         <td>
             {{item.codigo_nivel.nivel}}

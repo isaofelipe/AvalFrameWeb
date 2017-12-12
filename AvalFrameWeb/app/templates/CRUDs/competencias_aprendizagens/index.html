@@ -1,5 +1,5 @@
 ﻿{% extends "app/layout.html" %}
-
+{% load tags %}
 {% block content %}
     
 <h1>Competências x Aprendizagens</h1>
@@ -34,7 +34,7 @@
             {{item.codigo_aprendizagem.codigo}}
         </td>
         <td>
-            {{item.contribuicao_da_aprendizagem_na_competencia}}
+            {% porcentagem item.contribuicao_da_aprendizagem_na_competencia %}
         </td>
         <td>
             <a class="btn btn-warning" href="{% url 'competencias_aprendizagens_alterar' codigo=item.codigo %}">Alterar</a>
