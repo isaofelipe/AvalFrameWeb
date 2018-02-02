@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
-<html>
+<html charset="utf-8">
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AvalFrame Web </title>
     {% load staticfiles %}
@@ -24,8 +24,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li><a href="">Guia ECDA</a></li>
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bases Avaliação <span class="caret"></span></a>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bases Avaliação<span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
                       
                         <li><a href="{% url 'aprendizagens_index' %}">Aprendizagens</a></li>
@@ -48,30 +49,32 @@
 
                       </ul>
                     </li>
-                    <li><a href="{% url 'carga_aprendizagens_index' %}">Carga das Aprendizagens</a></li>
-                    <li><a href="{% url 'geracao_relatorio_index' %}">Geração de Relatório</a></li>
-                    <li><a href="{% url 'analise_dados_index' %}">Análise de Dados</a></li>
+                    <li><a href="{% url 'carga_aprendizagens_index' %}">Cálculo Aprendizagens</a></li>
+                    <li><a href="{% url 'geracao_relatorio_index' %}">Relatórios e Gráficos</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Downloads<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="">Game</a></li>
-                            <li><a href="">Agentes Inteligentes</a></li>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mineração de dados<span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                      
+                        <li><a href="https://www.dropbox.com/s/yx2omg0toa5abwu/Cluster.exe?dl=0#">Gráfico de Clusters</a></li>
+                        <li><a href="">Geração do Classificador</a></li>
 
-                        </ul>
+                      </ul>
                     </li>
+                    <li><a href="">Agentes</a></li>
+                    <li><a href="">Games</a></li>
                 </ul>
                 {% include 'app/loginpartial.html' %}
             </div>
         </div>
        </nav>
      <div class="container body-content">
-{% block content %}{% endblock %}
+        {% block content %}{% endblock %}
         <hr/>
-        <footer>
-           <center> <p>&copy; {{ year }} - AvalFrame Web</p></center>
-        </footer>
+        
     </div>
-
+    <footer>
+           &copy; {{ year }} - AvalFrame Web
+    </footer>
     <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
     <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
     <script src="{% static 'app/scripts/respond.js' %}"></script>
