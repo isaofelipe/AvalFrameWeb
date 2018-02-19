@@ -24,7 +24,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="">Guia ECDA</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projeto ECD-A<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="">Guia ECD-A</a></li>
+                            <li><a href="">Link Astah</a></li>
+                            <li><a href="">Link Draw.io</a></li>
+                        </ul>
+                    </li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bases Avaliação<span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
@@ -49,7 +56,24 @@
 
                       </ul>
                     </li>
-                    <li><a href="{% url 'carga_aprendizagens_index' %}">Cálculo Aprendizagens</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agentes<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="">Log AEEJ</a></li>
+                            <li><a href="">Captura Imagens</a></li>
+                            <li><a href="">Movimentação dos Olhos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tratamento Dados<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{% url 'carga_aprendizagens_index' %}">Apuração Aprendizagens</a></li>
+                            <li><a href="">Identificação Imagem</a></li>
+                            <li><a href="">Tratamento Dados Movimentação dos Olhos</a></li>
+                            <li><a href="">Geração Base Histórica</a></li>
+                        </ul>
+                    </li>
+
                     <li><a href="{% url 'geracao_relatorio_index' %}">Relatórios e Gráficos</a></li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mineração de dados<span class="caret"></span></a>
@@ -60,7 +84,6 @@
 
                       </ul>
                     </li>
-                    <li><a href="">Agentes</a></li>
                     <li><a href="">Games</a></li>
                 </ul>
                 {% include 'app/loginpartial.html' %}
